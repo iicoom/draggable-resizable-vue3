@@ -12,10 +12,6 @@
       },
       className,
     ]"
-    @mousedown="elementMouseDown"
-    @touchstart="elementTouchDown"
-    @mouseover="elementMouseOver"
-    @mouseleave="elementMouseLeave"
   >
     <div :class="'drv-' + handlesType">
       <div
@@ -30,8 +26,6 @@
         :style="{
           display: active ? 'block' : 'none',
         }"
-        @mousedown.stop.prevent="handleDown(handleEl, $event)"
-        @touchstart.stop.prevent="handleTouchDown(handleEl, $event)"
       >
         <slot
           v-if="slots['handle-' + handleEl]"
