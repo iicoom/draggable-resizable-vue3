@@ -1,5 +1,5 @@
 {
-  "name": "draggable-resizable-vue3",
+  "name": "draggable-resizable-vue3-no-event",
   "version": "1.0.94-beta",
   "license": "MIT",
   "description": "Vue 3 Component to drag and resize.",
