@@ -1086,126 +1086,126 @@ const elementMouseLeave = () => {
   }
 }
 
-onMounted(() => {
-  resetBoundsAndMouseState()
+// onMounted(() => {
+//   resetBoundsAndMouseState()
 
-  if (!props.enableNativeDrag) {
-    el.value.ondragstart = () => false
-  }
+//   if (!props.enableNativeDrag) {
+//     el.value.ondragstart = () => false
+//   }
 
-  const [parentWidthPx, parentHeightPx] = getParentSize()
+//   const [parentWidthPx, parentHeightPx] = getParentSize()
 
-  parentWidth.value = parentWidthPx
-  parentHeight.value = parentHeightPx
+//   parentWidth.value = parentWidthPx
+//   parentHeight.value = parentHeightPx
 
-  const [widthPx, heightPx] = getComputedSize(el.value)
+//   const [widthPx, heightPx] = getComputedSize(el.value)
 
-  aspectFactor.value =
-    (width.value !== 'auto' ? width.value : widthPx) /
-    (height.value !== 'auto' ? height.value : heightPx)
+//   aspectFactor.value =
+//     (width.value !== 'auto' ? width.value : widthPx) /
+//     (height.value !== 'auto' ? height.value : heightPx)
 
-  width.value = width.value !== 'auto' ? width.value : widthPx
-  height.value = height.value !== 'auto' ? height.value : heightPx
-  right.value = parentWidth.value - width.value - left.value
-  bottom.value = parentHeight.value - height.value - top.value
+//   width.value = width.value !== 'auto' ? width.value : widthPx
+//   height.value = height.value !== 'auto' ? height.value : heightPx
+//   right.value = parentWidth.value - width.value - left.value
+//   bottom.value = parentHeight.value - height.value - top.value
 
-  if (active.value) {
-    emit('activated')
-  }
+//   if (active.value) {
+//     emit('activated')
+//   }
 
-  if (props.showGrid) {
-    showParentGrid()
-  }
+//   if (props.showGrid) {
+//     showParentGrid()
+//   }
 
-  addEvent(document.documentElement, 'mousedown', deselect)
-  addEvent(document.documentElement, 'touchend touchcancel', deselect)
-  addEvent(window, 'resize', checkParentSize)
-})
+//   addEvent(document.documentElement, 'mousedown', deselect)
+//   addEvent(document.documentElement, 'touchend touchcancel', deselect)
+//   addEvent(window, 'resize', checkParentSize)
+// })
 
-watch(
-  () => props.x,
-  (val) => {
-    if (resizing.value || dragging.value) {
-      return
-    }
+// watch(
+//   () => props.x,
+//   (val) => {
+//     if (resizing.value || dragging.value) {
+//       return
+//     }
 
-    if (parent.value) {
-      bounds.value = calcDragLimits()
-    }
+//     if (parent.value) {
+//       bounds.value = calcDragLimits()
+//     }
 
-    moveHorizontally(val)
-  },
-)
+//     moveHorizontally(val)
+//   },
+// )
 
-watch(
-  () => props.y,
-  (val) => {
-    if (resizing.value || dragging.value) {
-      return
-    }
+// watch(
+//   () => props.y,
+//   (val) => {
+//     if (resizing.value || dragging.value) {
+//       return
+//     }
 
-    if (parent.value) {
-      bounds.value = calcDragLimits()
-    }
+//     if (parent.value) {
+//       bounds.value = calcDragLimits()
+//     }
 
-    moveVertically(val)
-  },
-)
+//     moveVertically(val)
+//   },
+// )
 
-watch(
-  () => props.lockAspectRatio,
-  (val) => {
-    if (val) {
-      aspectFactor.value = width.value / height.value
-    } else {
-      aspectFactor.value = undefined
-    }
-  },
-)
+// watch(
+//   () => props.lockAspectRatio,
+//   (val) => {
+//     if (val) {
+//       aspectFactor.value = width.value / height.value
+//     } else {
+//       aspectFactor.value = undefined
+//     }
+//   },
+// )
 
-watch(
-  () => props.w,
-  (val) => {
-    if (resizing.value || dragging.value) {
-      return
-    }
+// watch(
+//   () => props.w,
+//   (val) => {
+//     if (resizing.value || dragging.value) {
+//       return
+//     }
 
-    if (parent.value) {
-      bounds.value = calcResizeLimits()
-    }
+//     if (parent.value) {
+//       bounds.value = calcResizeLimits()
+//     }
 
-    changeWidth(val)
-  },
-)
+//     changeWidth(val)
+//   },
+// )
 
-watch(
-  () => props.h,
-  (val) => {
-    if (resizing.value || dragging.value) {
-      return
-    }
+// watch(
+//   () => props.h,
+//   (val) => {
+//     if (resizing.value || dragging.value) {
+//       return
+//     }
 
-    if (parent.value) {
-      bounds.value = calcResizeLimits()
-    }
+//     if (parent.value) {
+//       bounds.value = calcResizeLimits()
+//     }
 
-    changeHeight(val)
-  },
-)
+//     changeHeight(val)
+//   },
+// )
 
-watch(
-  () => props.showGrid,
-  () => {
-    showParentGrid()
-  },
-)
+// watch(
+//   () => props.showGrid,
+//   () => {
+//     showParentGrid()
+//   },
+// )
 
-watch(
-  () => props.grid,
-  () => {
-    showParentGrid()
-  },
-)
+// watch(
+//   () => props.grid,
+//   () => {
+//     showParentGrid()
+//   },
+// )
 </script>
 
 <style>
