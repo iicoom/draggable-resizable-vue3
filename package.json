@@ -1,6 +1,6 @@
 {
   "name": "drvue3",
-  "version": "1.0.94",
+  "version": "1.0.95",
   "license": "MIT",
   "description": "Vue 3 Component to drag and resize.",
   "scripts": {
