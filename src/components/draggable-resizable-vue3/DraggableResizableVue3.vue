@@ -1125,7 +1125,7 @@ onMounted(() => {
 
   addEvent(document.documentElement, 'mousedown', deselect)
   addEvent(document.documentElement, 'touchend touchcancel', deselect)
-  addEvent(window, 'resize', checkParentSize)
+  // addEvent(window, 'resize', checkParentSize)
 })
 
 watch(
