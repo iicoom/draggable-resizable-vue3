@@ -639,7 +639,7 @@ const deselect = (e) => {
   ) {
     if (active.value && !props.preventDeactivation) {
       active.value = false
-      emit('deactivated')
+      emit('deactivated', e)
       // emit('update:active', false)
     }
 
